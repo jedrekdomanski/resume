@@ -1,2 +1,2 @@
 ### Architecture
-![Architecture](architecture.png)
+![Architecture](assets/img/architecture.png)
