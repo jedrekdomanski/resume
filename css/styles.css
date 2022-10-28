@@ -396,6 +396,10 @@ textarea {
   resize: vertical;
 }
 
+svg {
+  margin-right: 0.5rem;
+}
+
 fieldset {
   min-width: 0;
   padding: 0;
@@ -492,6 +496,10 @@ progress {
 .lead {
   font-size: 1.25rem;
   font-weight: 300;
+}
+
+.fontaw {
+  padding: 0 10;
 }
 
 .display-1 {
