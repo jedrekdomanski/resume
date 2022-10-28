@@ -396,6 +396,10 @@ textarea {
   resize: vertical;
 }
 
+svg {
+  margin-right: 0.5rem;
+}
+
 fieldset {
   min-width: 0;
   padding: 0;
