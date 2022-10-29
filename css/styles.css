@@ -348,7 +348,6 @@ button,
 select,
 optgroup,
 textarea {
-  margin: 0;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
@@ -644,6 +643,10 @@ progress {
   padding-left: var(--bs-gutter-x, 0.75rem);
   margin-right: auto;
   margin-left: auto;
+}
+
+#requesterMessage {
+  margin: 0.5rem 0;
 }
 
 @media (min-width: 576px) {
