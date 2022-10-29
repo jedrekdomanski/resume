@@ -9,6 +9,8 @@
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.2.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- jQuery Install -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
@@ -180,7 +182,56 @@
             <section class="resume-section" id="reachout">
                 <div class="resume-section-content">
                   <h2 class="mb-5">Reach Out!</h2>
-                    <!-- Form goes here -->
+                    <form id="request-resume" action="https://api.jedrzejdomanski.com/api/send-email" method="POST">
+
+                      <div class="form-group">
+                        <label for="requestername">Name</label>
+                        <input type="text" class="form-control" id="requestername" placeholder="John Doe">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="requsteremail">Email address</label>
+                        <input type="email" class="form-control" id="requesteremail" placeholder="Enter email">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="requesterMessage">Add your message here</label>
+                        <textarea class="form-control" id="requesterMessage" rows="4"></textarea>
+                      </div>
+
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                    <script type="text/javascript">
+                      /* attach a submit handler to the form */
+                      $("#request-resume").submit(function(event) {
+                        /* stop form from submitting normally */
+                        event.preventDefault();
+
+                        /* get the action attribute from the <form action=""> element */
+                        var $form = $(this),
+                            url = $form.attr('action');
+
+                        /* Send the form data using ajax */
+                        var request = $.ajax({
+                          url: url,
+                          crossDomain: true,
+                          method: "POST",
+                          data: { name: $('#requestername').val(), email: $('#requesteremail').val(), requester_message: $('#requesterMessage').val() },
+                          dataType: "html"
+                        });
+
+                        /* Alerts the results */
+                        request.done(function( msg ) {
+                          alert( "Complete!" );
+                          window.location.reload();
+                        });
+
+                        request.fail(function( jqXHR, textStatus ) {
+                          alert( "Request failed: " + textStatus );
+                        });
+
+                      });
+                  </script>
                 </div>
             </section>
 
