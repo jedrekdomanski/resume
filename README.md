@@ -1,2 +1,2 @@
-### Architecture
-![Architecture](assets/img/architecture.png)
+### Website
+![Website](assets/img/index.png)
