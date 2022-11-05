@@ -216,7 +216,11 @@
                           url: url,
                           crossDomain: true,
                           method: "POST",
-                          data: { name: $('#requestername').val(), email: $('#requesteremail').val(), requester_message: $('#requesterMessage').val() },
+                          data: {
+                            name: $('#requestername').val(),
+                            email: $('#requesteremail').val(),
+                            message: $('#requesterMessage').val()
+                          },
                           dataType: "html"
                         });
 
