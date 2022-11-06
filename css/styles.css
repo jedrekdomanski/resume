@@ -563,6 +563,10 @@ progress {
   }
 }
 
+.workflow-headline {
+  padding-top: 2rem;
+}
+
 .list-unstyled {
   padding-left: 0;
   list-style: none;
