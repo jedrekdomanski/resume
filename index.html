@@ -193,7 +193,10 @@
                             email: $('#requesteremail').val(),
                             message: $('#requesterMessage').val()
                           },
-                          dataType: "json"
+                          dataType: "json",
+                          headers: {
+                            'Content-Type':'application/json'
+                          }
                         });
 
                         /* Alerts the results */
