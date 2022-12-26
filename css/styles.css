@@ -3042,9 +3042,9 @@ textarea.form-control-lg {
 }
 
 .btn-primary {
-  color: #000;
-  background-color: #bd5d38;
-  border-color: #bd5d38;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
 }
 .btn-primary:hover {
   color: #000;
