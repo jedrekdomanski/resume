@@ -183,20 +183,20 @@
                         var $form = $(this),
                             url = $form.attr('action');
 
+                        var data = {
+                            name: $('#requestername').val(),
+                            email: $('#requesteremail').val(),
+                            message: $('#requesterMessage').val()
+                          }
+
                         /* Send the form data using ajax */
                         var request = $.ajax({
                           url: url,
                           crossDomain: true,
                           method: "POST",
-                          data: {
-                            name: $('#requestername').val(),
-                            email: $('#requesteremail').val(),
-                            message: $('#requesterMessage').val()
-                          },
+                          data: JSON.stringify(data),
                           dataType: "json",
-                          headers: {
-                            'Content-Type':'application/json'
-                          }
+                          conentType: 'application/json'
                         });
 
                         /* Alerts the results */
