@@ -158,6 +158,7 @@
             <section class="resume-section" id="reachout">
                 <div class="resume-section-content">
                   <h2 class="mb-5">Reach Out!</h2>
+                    <div class="alert" role="alert"></div>
                     <form id="request-resume" action="https://api.jedrzejdomanski.com/api/sendEmail" method="POST">
                       <div class="form-group">
                         <label for="requestername">Name</label>
@@ -190,25 +191,24 @@
                           }
 
                         /* Send the form data using ajax */
-                        var request = $.ajax({
+                        $.ajax({
                           url: url,
                           crossDomain: true,
                           method: "POST",
                           data: JSON.stringify(data),
                           dataType: "json",
-                          conentType: 'application/json'
+                          conentType: 'application/json',
+                          success: function(response) {
+                            $('.alert')
+                              .addClass('alert-success')
+                              .text(response['message']);
+                          },
+                          error: function(xhr) {
+                            $('.alert')
+                              .addClass('alert-anger')
+                              .text(xhr.responseText['error']);
+                          }
                         });
-
-                        /* Alerts the results */
-                        request.done(function( msg ) {
-                          alert( "Complete!" );
-                          window.location.reload();
-                        });
-
-                        request.fail(function( jqXHR, textStatus ) {
-                          alert( "Request failed: " + textStatus );
-                        });
-
                       });
                   </script>
                 </div>
